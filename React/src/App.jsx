@@ -1,9 +1,11 @@
-import UseStateDemo from "./useStateDemo"
+import UseStateDemo from "./useStateDemo/useStateDemo"
+import UseEffectDemo from "./useEffectDemo/useEffectDemo"
 
 function App() {
   return (
     <>
-      <UseStateDemo />
+     {/* // <UseStateDemo /> */}
+     <UseEffectDemo/>
     </>
   )
 }
