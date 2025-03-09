@@ -1,35 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react"
+import UseStateDemo from "./useStateDemo/useStateDemo"
+import UseEffectDemo from "./useEffectDemo/useEffectDemo"
+import ThemedButton from "./useContextDemo/Theme/ThemedButton"
+import Navbar from "./useContextDemo/Auth/Navbar"
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {/* // <UseStateDemo /> */}
+      {/* <UseEffectDemo/> */}
+      {/* <ThemedButton /> */}
+      <Navbar />
+      <Counter />
     </>
   )
+}
+
+function Counter() {
+  const [count, setCount] = React.useState(0)
+  return (
+    <div>
+      <BigCountNumber count={count} />
+      <button onClick={() => setCount(count + 1)}>Increase</button>
+      <Decoration />
+    </div>
+  )
+}
+
+function BigCountNumber({ count }) {
+  return (
+    <p>
+      <span className="prefix">Count:</span>
+      {count}
+    </p>
+  )
+}
+
+function Decoration() {
+  return <div className="decoration">⛵️</div>
 }
 
 export default App
